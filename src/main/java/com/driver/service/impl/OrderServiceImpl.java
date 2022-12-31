@@ -8,10 +8,12 @@ import com.driver.service.OrderService;
 import com.driver.shared.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@ControllerAdvice
 public class OrderServiceImpl implements OrderService{
     @Autowired
     OrderRepository orderRepository;

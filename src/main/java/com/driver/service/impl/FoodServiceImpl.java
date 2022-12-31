@@ -6,10 +6,12 @@ import com.driver.service.FoodService;
 import com.driver.shared.dto.FoodDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@ControllerAdvice
 public class FoodServiceImpl implements FoodService
 {
     @Autowired

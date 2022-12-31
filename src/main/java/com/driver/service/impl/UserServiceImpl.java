@@ -7,10 +7,12 @@ import com.driver.service.UserService;
 import com.driver.shared.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@ControllerAdvice
 public class UserServiceImpl implements UserService
 {
     @Autowired
