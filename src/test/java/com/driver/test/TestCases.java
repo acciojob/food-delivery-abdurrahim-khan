@@ -6,5 +6,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestCases {
-
+    public static void main(String[] args) throws Exception {
+        throw new Exception();
+    }
 }
