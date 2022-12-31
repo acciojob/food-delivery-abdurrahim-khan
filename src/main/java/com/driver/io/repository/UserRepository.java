@@ -7,9 +7,9 @@ import com.driver.io.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<UserEntity, Long> {
-	UserEntity findByEmail(String email);
-	UserEntity findByUserId(String userId);
-	boolean existsByEmail(String email);
-	boolean existsByUserId(String userId);
-	void deleteByUserId(String userId);
+	UserEntity findByEmail(String email) throws Exception;
+	UserEntity findByUserId(String userId) throws Exception;
+	boolean existsByEmail(String email) throws Exception;
+	boolean existsByUserId(String userId) throws Exception;
+
 }

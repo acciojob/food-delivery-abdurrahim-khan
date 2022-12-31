@@ -47,20 +47,19 @@ public class UserController {
 
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteUser(@PathVariable String id) throws Exception{
-//		try
-//		{
-//			userService.deleteUser(id);
-//		}
-//		catch (Exception e)
-//		{
-//			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
-//					.operationName(RequestOperationName.DELETE.toString())
-//					.operationResult(RequestOperationStatus.ERROR.toString())
-//					.build();
-//			e.printStackTrace();
-//			return operationStatusModel;
-//		}
-		userService.deleteUser(id);
+		try
+		{
+			userService.deleteUser(id);
+		}
+		catch (Exception e)
+		{
+			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
+					.operationName(RequestOperationName.DELETE.toString())
+					.operationResult(RequestOperationStatus.ERROR.toString())
+					.build();
+			e.printStackTrace();
+			return operationStatusModel;
+		}
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())

@@ -20,7 +20,7 @@ public class UserConverter {
                 .build();
         return userDto;
     }
-    public static UserResponse dtoToResponse(UserDto userDto)
+    public static UserResponse dtoToResponse(UserDto userDto) throws Exception
     {
         UserResponse userResponse = UserResponse.builder()
                 .firstName(userDto.getFirstName())
@@ -30,7 +30,7 @@ public class UserConverter {
                 .build();
         return userResponse;
     }
-    public static UserDto entityToDto(UserEntity userEntity)
+    public static UserDto entityToDto(UserEntity userEntity) throws Exception
     {
         UserDto userDto = UserDto.builder()
                 .firstName(userEntity.getFirstName())

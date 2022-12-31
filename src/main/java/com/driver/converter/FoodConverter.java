@@ -18,7 +18,7 @@ public class FoodConverter {
                 .foodId(UUID.randomUUID().toString()).build();
         return foodDto;
     }
-    public static FoodDetailsResponse dtoToResponse(FoodDto foodDto)
+    public static FoodDetailsResponse dtoToResponse(FoodDto foodDto) throws Exception
     {
         FoodDetailsResponse foodDetailsResponse = FoodDetailsResponse.builder()
                 .foodName(foodDto.getFoodName())

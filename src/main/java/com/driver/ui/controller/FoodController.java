@@ -52,22 +52,22 @@ public class FoodController {
 
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
-//		try
-//		{
-//			foodService.deleteFoodItem(id);
-//		}
-//		catch (Exception e)
-//		{
-//			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
-//					.operationName(RequestOperationName.DELETE.toString())
-//					.operationResult(RequestOperationStatus.ERROR.toString())
-//					.build();
-//			e.printStackTrace();
-//			return operationStatusModel;
-//
-//		}
+		try
+		{
+			foodService.deleteFoodItem(id);
+		}
+		catch (Exception e)
+		{
+			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
+					.operationName(RequestOperationName.DELETE.toString())
+					.operationResult(RequestOperationStatus.ERROR.toString())
+					.build();
+			e.printStackTrace();
+			return operationStatusModel;
 
-		foodService.deleteFoodItem(id);
+		}
+
+
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())

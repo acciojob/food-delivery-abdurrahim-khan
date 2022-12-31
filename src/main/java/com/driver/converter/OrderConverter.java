@@ -21,7 +21,7 @@ public class OrderConverter {
                 .build();
         return orderDto;
     }
-    public static OrderDetailsResponse dtoToResponse(OrderDto orderDto)
+    public static OrderDetailsResponse dtoToResponse(OrderDto orderDto) throws Exception
     {
         OrderDetailsResponse orderDetailsResponse = OrderDetailsResponse.builder()
                 .orderId(orderDto.getOrderId())
@@ -32,7 +32,7 @@ public class OrderConverter {
                 .build();
         return orderDetailsResponse;
     }
-    public static OrderDto entityToDto(OrderEntity orderEntity)
+    public static OrderDto entityToDto(OrderEntity orderEntity) throws Exception
     {
         OrderDto orderDto = OrderDto.builder()
                 .status(orderEntity.isStatus())
