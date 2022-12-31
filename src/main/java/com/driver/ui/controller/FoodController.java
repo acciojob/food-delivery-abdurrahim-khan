@@ -40,7 +40,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@PostMapping("/create")
+	@PostMapping()
 	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails) throws Exception {
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.createFood(foodDto);
