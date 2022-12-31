@@ -20,18 +20,8 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     UserRepository userRepository;
     @Override
-    public OrderDto createOrder(OrderDto order) throws Exception{
-        try
-        {
-            if(!userRepository.existsByUserId(order.getUserId()))
-            {
-                throw new Exception("user not found");
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("user not found");
-        }
+    public OrderDto createOrder(OrderDto order){
+
         OrderEntity orderEntity = OrderEntity.builder()
                 .orderId(order.getOrderId())
                 .userId(order.getUserId())
@@ -40,7 +30,11 @@ public class OrderServiceImpl implements OrderService{
                 .status(order.isStatus())
                 .build();
         orderRepository.save(orderEntity);
-        return getOrderById(order.getOrderId());
+
+        OrderEntity orderEntity1 = orderRepository.findByOrderId(order.getOrderId());
+        OrderDto orderDto = OrderConverter.entityToDto(orderEntity1);
+
+        return orderDto;
     }
 
     @Override
