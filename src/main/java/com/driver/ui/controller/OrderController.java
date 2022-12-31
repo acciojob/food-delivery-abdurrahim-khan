@@ -69,7 +69,7 @@ public class OrderController {
 	}
 	
 	@GetMapping()
-	public List<OrderDetailsResponse> getOrders() throws Exception {
+	public List<OrderDetailsResponse> getOrders() {
 		List<OrderDto> orderDtoList = orderService.getOrders();
 		List<OrderDetailsResponse> orderDetailsResponseList = new ArrayList<>();
 		for(OrderDto orderDto : orderDtoList)

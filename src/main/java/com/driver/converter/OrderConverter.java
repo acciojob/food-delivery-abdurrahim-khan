@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class OrderConverter {
-    public static OrderDto orderRequestToDto(OrderDetailsRequestModel orderDetailsRequestModel) throws Exception
+    public static OrderDto orderRequestToDto(OrderDetailsRequestModel orderDetailsRequestModel)
     {
         OrderDto orderDto = OrderDto.builder()
                 .orderId(UUID.randomUUID().toString())
@@ -21,7 +21,7 @@ public class OrderConverter {
                 .build();
         return orderDto;
     }
-    public static OrderDetailsResponse dtoToResponse(OrderDto orderDto) throws Exception
+    public static OrderDetailsResponse dtoToResponse(OrderDto orderDto)
     {
         OrderDetailsResponse orderDetailsResponse = OrderDetailsResponse.builder()
                 .orderId(orderDto.getOrderId())
@@ -32,7 +32,7 @@ public class OrderConverter {
                 .build();
         return orderDetailsResponse;
     }
-    public static OrderDto entityToDto(OrderEntity orderEntity) throws Exception
+    public static OrderDto entityToDto(OrderEntity orderEntity)
     {
         OrderDto orderDto = OrderDto.builder()
                 .status(orderEntity.isStatus())

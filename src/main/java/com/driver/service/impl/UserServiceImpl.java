@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public List<UserDto> getUsers() throws Exception {
+    public List<UserDto> getUsers()  {
         List<UserEntity> userEntityList = (List<UserEntity>) userRepository.findAll();
         List<UserDto> userDtoList = new ArrayList<>();
         for(UserEntity userEntity : userEntityList)

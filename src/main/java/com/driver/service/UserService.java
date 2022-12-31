@@ -14,5 +14,5 @@ public interface UserService{
 	UserDto getUserByUserId(String userId) throws Exception;
 	UserDto updateUser(String userId, UserDto user) throws Exception;
 	void deleteUser(String userId) throws Exception;
-	List<UserDto> getUsers() throws  Exception;
+	List<UserDto> getUsers();
 }

@@ -101,7 +101,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<OrderDto> getOrders() throws Exception {
+    public List<OrderDto> getOrders(){
         List<OrderEntity> orderEntityList = (List<OrderEntity>) orderRepository.findAll();
         List<OrderDto> orderDtoList = new ArrayList<>();
         for(OrderEntity orderEntity : orderEntityList)

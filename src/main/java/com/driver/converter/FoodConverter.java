@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class FoodConverter {
-    public static FoodDto foodRequestToDto(FoodDetailsRequestModel foodDetailsRequestModel) throws Exception
+    public static FoodDto foodRequestToDto(FoodDetailsRequestModel foodDetailsRequestModel)
     {
         FoodDto foodDto = FoodDto.builder()
                 .foodName(foodDetailsRequestModel.getFoodName())
@@ -18,7 +18,7 @@ public class FoodConverter {
                 .foodId(UUID.randomUUID().toString()).build();
         return foodDto;
     }
-    public static FoodDetailsResponse dtoToResponse(FoodDto foodDto) throws Exception
+    public static FoodDetailsResponse dtoToResponse(FoodDto foodDto)
     {
         FoodDetailsResponse foodDetailsResponse = FoodDetailsResponse.builder()
                 .foodName(foodDto.getFoodName())

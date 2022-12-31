@@ -17,7 +17,7 @@ public class FoodServiceImpl implements FoodService
     @Autowired
     FoodRepository foodRepository;
     @Override
-    public FoodDto createFood(FoodDto food) throws Exception {
+    public FoodDto createFood(FoodDto food) {
 
         FoodEntity foodEntity = FoodEntity.builder()
                 .foodCategory(food.getFoodCategory())
@@ -26,7 +26,16 @@ public class FoodServiceImpl implements FoodService
                 .foodId(food.getFoodId())
                 .build();
         foodRepository.save(foodEntity);
-        return getFoodById(food.getFoodId());
+
+        FoodEntity foodEntity1 = foodRepository.findByFoodId(food.getFoodId());
+        FoodDto foodDto = FoodDto.builder()
+                .foodCategory(foodEntity1.getFoodCategory())
+                .foodId(foodEntity1.getFoodId())
+                .foodName(foodEntity1.getFoodName())
+                .foodPrice(foodEntity1.getFoodPrice())
+                .id(foodEntity1.getId())
+                .build();
+        return foodDto;
 
     }
 
@@ -103,7 +112,7 @@ public class FoodServiceImpl implements FoodService
     }
 
     @Override
-    public List<FoodDto> getFoods() throws Exception{
+    public List<FoodDto> getFoods(){
         List<FoodDto> foodDtoList = new ArrayList<>();
         List<FoodEntity> foodEntityList = (List<FoodEntity>)foodRepository.findAll();
         for(FoodEntity foodEntity : foodEntityList)

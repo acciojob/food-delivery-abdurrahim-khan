@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class UserConverter {
-    public static UserDto userRequestToDto(UserDetailsRequestModel userDetailsRequestModel) throws Exception
+    public static UserDto userRequestToDto(UserDetailsRequestModel userDetailsRequestModel)
     {
         UserDto userDto = UserDto.builder()
                 .firstName(userDetailsRequestModel.getFirstName())
@@ -20,7 +20,7 @@ public class UserConverter {
                 .build();
         return userDto;
     }
-    public static UserResponse dtoToResponse(UserDto userDto) throws Exception
+    public static UserResponse dtoToResponse(UserDto userDto)
     {
         UserResponse userResponse = UserResponse.builder()
                 .firstName(userDto.getFirstName())
@@ -30,7 +30,7 @@ public class UserConverter {
                 .build();
         return userResponse;
     }
-    public static UserDto entityToDto(UserEntity userEntity) throws Exception
+    public static UserDto entityToDto(UserEntity userEntity)
     {
         UserDto userDto = UserDto.builder()
                 .firstName(userEntity.getFirstName())

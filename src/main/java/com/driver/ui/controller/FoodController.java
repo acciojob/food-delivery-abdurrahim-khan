@@ -35,7 +35,7 @@ public class FoodController {
 	}
 
 	@PostMapping()
-	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails) throws Exception {
+	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails){
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.createFood(foodDto);
 		FoodDetailsResponse foodDetailsResponse = FoodConverter.dtoToResponse(foodDto1);
@@ -76,7 +76,7 @@ public class FoodController {
 	}
 	
 	@GetMapping()
-	public List<FoodDetailsResponse> getFoods() throws Exception {
+	public List<FoodDetailsResponse> getFoods(){
 		List<FoodDetailsResponse> foodDetailsResponseList = new ArrayList<>();
 		List<FoodDto> foodDtoList = foodService.getFoods();
 		for(FoodDto foodDto : foodDtoList)
