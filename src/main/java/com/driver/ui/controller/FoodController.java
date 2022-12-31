@@ -81,7 +81,7 @@ public class FoodController {
 	}
 	
 	@GetMapping()
-	public List<FoodDetailsResponse> getFoods() {
+	public List<FoodDetailsResponse> getFoods() throws Exception {
 		List<FoodDetailsResponse> foodDetailsResponseList = new ArrayList<>();
 		List<FoodDto> foodDtoList = foodService.getFoods();
 		for(FoodDto foodDto : foodDtoList)

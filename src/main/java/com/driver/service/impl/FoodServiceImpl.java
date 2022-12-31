@@ -101,7 +101,7 @@ public class FoodServiceImpl implements FoodService
     }
 
     @Override
-    public List<FoodDto> getFoods() {
+    public List<FoodDto> getFoods() throws Exception{
         List<FoodDto> foodDtoList = new ArrayList<>();
         List<FoodEntity> foodEntityList = (List<FoodEntity>)foodRepository.findAll();
         for(FoodEntity foodEntity : foodEntityList)

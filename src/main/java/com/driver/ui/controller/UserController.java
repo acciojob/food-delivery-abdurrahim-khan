@@ -74,7 +74,7 @@ public class UserController {
 	}
 	
 	@GetMapping()
-	public List<UserResponse> getUsers(){
+	public List<UserResponse> getUsers() throws Exception {
 		List<UserDto> userDtoList = userService.getUsers();
 		List<UserResponse> userResponseList = new ArrayList<>();
 		for(UserDto userDto : userDtoList)
