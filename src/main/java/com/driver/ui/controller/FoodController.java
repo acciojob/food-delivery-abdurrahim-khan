@@ -28,7 +28,7 @@ public class FoodController {
 	FoodServiceImpl foodService;
 
 
-	@GetMapping(path="/{id}")
+	@GetMapping(path="/get/{id}")
 	public FoodDetailsResponse getFood(@PathVariable String id) throws Exception{
 		FoodDto foodDto = foodService.getFoodById(id);
 		FoodDetailsResponse foodDetailsResponse = FoodDetailsResponse.builder()
@@ -40,7 +40,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@PostMapping()
+	@PostMapping("/create")
 	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails) throws Exception {
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.createFood(foodDto);
@@ -48,7 +48,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@PutMapping(path="/{id}")
+	@PutMapping(path="/update/{id}")
 	public FoodDetailsResponse updateFood(@PathVariable String id, @RequestBody FoodDetailsRequestModel foodDetails) throws Exception{
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.updateFoodDetails(id,foodDto);
@@ -56,7 +56,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@DeleteMapping(path = "/{id}")
+	@DeleteMapping(path = "/delete/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
 		try
 		{
