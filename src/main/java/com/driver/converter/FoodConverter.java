@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class FoodConverter {
-    public static FoodDto foodRequestToDto(FoodDetailsRequestModel foodDetailsRequestModel)
+    public static FoodDto foodRequestToDto(FoodDetailsRequestModel foodDetailsRequestModel) throws Exception
     {
         FoodDto foodDto = FoodDto.builder()
                 .foodName(foodDetailsRequestModel.getFoodName())

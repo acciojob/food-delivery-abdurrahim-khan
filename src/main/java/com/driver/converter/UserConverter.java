@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class UserConverter {
-    public static UserDto userRequestToDto(UserDetailsRequestModel userDetailsRequestModel)
+    public static UserDto userRequestToDto(UserDetailsRequestModel userDetailsRequestModel) throws Exception
     {
         UserDto userDto = UserDto.builder()
                 .firstName(userDetailsRequestModel.getFirstName())

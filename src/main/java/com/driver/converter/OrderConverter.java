@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @UtilityClass
 public class OrderConverter {
-    public static OrderDto orderRequestToDto(OrderDetailsRequestModel orderDetailsRequestModel)
+    public static OrderDto orderRequestToDto(OrderDetailsRequestModel orderDetailsRequestModel) throws Exception
     {
         OrderDto orderDto = OrderDto.builder()
                 .orderId(UUID.randomUUID().toString())
