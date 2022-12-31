@@ -31,17 +31,17 @@ public class FoodServiceImpl implements FoodService
     @Override
     public FoodDto getFoodById(String foodId) throws Exception {
         FoodEntity foodEntity= null;
-        try {
+//        try {
             foodEntity = foodRepository.findByFoodId(foodId);
-            if(foodEntity == null)
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("invalid food ID");
-        }
+//            if(foodEntity == null)
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("invalid food ID");
+//        }
 
         FoodDto foodDto = FoodDto.builder()
                 .foodCategory(foodEntity.getFoodCategory())
@@ -56,18 +56,18 @@ public class FoodServiceImpl implements FoodService
     @Override
     public FoodDto updateFoodDetails(String foodId, FoodDto foodDetails) throws Exception {
         FoodEntity foodEntity = null;
-        try
-        {
+//        try
+//        {
             foodEntity = foodRepository.findByFoodId(foodId);
-            if(foodEntity == null)
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("food not found");
-        }
+//            if(foodEntity == null)
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("food not found");
+//        }
         foodEntity.setFoodCategory(foodDetails.getFoodCategory());
         foodEntity.setFoodName(foodDetails.getFoodName());
         foodEntity.setFoodPrice(foodDetails.getFoodPrice());
@@ -86,18 +86,18 @@ public class FoodServiceImpl implements FoodService
     @Override
     public void deleteFoodItem(String id) throws Exception {
         FoodEntity foodEntity = foodRepository.findByFoodId(id);
-        try
-        {
-            if(foodEntity == null)
-            {
-                throw  new Exception();
-            }
+//        try
+//        {
+//            if(foodEntity == null)
+//            {
+//                throw  new Exception();
+//            }
             foodRepository.deleteById(foodEntity.getId());
-        }
-        catch (Exception e)
-        {
-            throw  new Exception("food not found");
-        }
+//        }
+//        catch (Exception e)
+//        {
+//            throw  new Exception("food not found");
+//        }
     }
 
     @Override

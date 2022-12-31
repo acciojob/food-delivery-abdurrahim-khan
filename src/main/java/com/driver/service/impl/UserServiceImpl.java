@@ -18,17 +18,17 @@ public class UserServiceImpl implements UserService
     @Override
     public UserDto createUser(UserDto user) throws Exception {
 
-        try
-        {
-            if(userRepository.existsByEmail(user.getEmail()))
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("user already exists");
-        }
+//        try
+//        {
+//            if(userRepository.existsByEmail(user.getEmail()))
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("user already exists");
+//        }
         UserEntity userEntity = UserEntity.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
@@ -41,17 +41,17 @@ public class UserServiceImpl implements UserService
 
     @Override
     public UserDto getUser(String email) throws Exception {
-        try
-        {
-            if(!userRepository.existsByEmail(email))
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("invalid email");
-        }
+//        try
+//        {
+//            if(!userRepository.existsByEmail(email))
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("invalid email");
+//        }
         UserEntity userEntity = userRepository.findByEmail(email);
         UserDto userDto = UserConverter.entityToDto(userEntity);
         return userDto;
@@ -60,17 +60,17 @@ public class UserServiceImpl implements UserService
 
     @Override
     public UserDto getUserByUserId(String userId) throws Exception {
-        try
-        {
-            if(!userRepository.existsByUserId(userId))
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("user does not exists");
-        }
+//        try
+//        {
+//            if(!userRepository.existsByUserId(userId))
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("user does not exists");
+//        }
         UserEntity userEntity = userRepository.findByUserId(userId);
         UserDto userDto = UserConverter.entityToDto(userEntity);
         return userDto;
@@ -78,17 +78,17 @@ public class UserServiceImpl implements UserService
 
     @Override
     public UserDto updateUser(String userId, UserDto user) throws Exception {
-        try
-        {
-            if(!userRepository.existsByUserId(userId))
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("user does not exists");
-        }
+//        try
+//        {
+//            if(!userRepository.existsByUserId(userId))
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("user does not exists");
+//        }
 
         UserEntity userEntity = userRepository.findByUserId(userId);
         userEntity.setEmail(user.getEmail());
@@ -102,17 +102,17 @@ public class UserServiceImpl implements UserService
 
     @Override
     public void deleteUser(String userId) throws Exception {
-        try
-        {
-            if(!userRepository.existsByUserId(userId))
-            {
-                throw new Exception();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception("user does not exist");
-        }
+//        try
+//        {
+//            if(!userRepository.existsByUserId(userId))
+//            {
+//                throw new Exception();
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            throw new Exception("user does not exist");
+//        }
         long id = userRepository.findByUserId(userId).getId();
         userRepository.deleteById(id);
     }

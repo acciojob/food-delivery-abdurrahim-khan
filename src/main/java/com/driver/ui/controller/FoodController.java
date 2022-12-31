@@ -28,7 +28,7 @@ public class FoodController {
 	FoodServiceImpl foodService;
 
 
-	@GetMapping(path="/get/{id}")
+	@GetMapping(path="/{id}")
 	public FoodDetailsResponse getFood(@PathVariable String id) throws Exception{
 		FoodDto foodDto = foodService.getFoodById(id);
 		FoodDetailsResponse foodDetailsResponse = FoodDetailsResponse.builder()
@@ -40,7 +40,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@PostMapping("/create")
+	@PostMapping()
 	public FoodDetailsResponse createFood(@RequestBody FoodDetailsRequestModel foodDetails) throws Exception {
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.createFood(foodDto);
@@ -48,7 +48,7 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@PutMapping(path="/update/{id}")
+	@PutMapping(path="/{id}")
 	public FoodDetailsResponse updateFood(@PathVariable String id, @RequestBody FoodDetailsRequestModel foodDetails) throws Exception{
 		FoodDto foodDto = FoodConverter.foodRequestToDto(foodDetails);
 		FoodDto foodDto1 = foodService.updateFoodDetails(id,foodDto);
@@ -56,22 +56,22 @@ public class FoodController {
 		return foodDetailsResponse;
 	}
 
-	@DeleteMapping(path = "/delete/{id}")
+	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
-		try
-		{
-			foodService.deleteFoodItem(id);
-		}
-		catch (Exception e)
-		{
-			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
-					.operationName(RequestOperationName.DELETE.toString())
-					.operationResult(RequestOperationStatus.ERROR.toString())
-					.build();
-			e.printStackTrace();
-			return operationStatusModel;
-
-		}
+//		try
+//		{
+//			foodService.deleteFoodItem(id);
+//		}
+//		catch (Exception e)
+//		{
+//			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
+//					.operationName(RequestOperationName.DELETE.toString())
+//					.operationResult(RequestOperationStatus.ERROR.toString())
+//					.build();
+//			e.printStackTrace();
+//			return operationStatusModel;
+//
+//		}
 
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())

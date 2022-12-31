@@ -53,19 +53,19 @@ public class OrderController {
 	
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteOrder(@PathVariable String id) throws Exception {
-		try
-		{
-			orderService.deleteOrder(id);
-		}
-		catch (Exception e)
-		{
-			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
-					.operationName(RequestOperationName.DELETE.toString())
-					.operationResult(RequestOperationStatus.ERROR.toString())
-					.build();
-			e.printStackTrace();
-			return operationStatusModel;
-		}
+//		try
+//		{
+//			orderService.deleteOrder(id);
+//		}
+//		catch (Exception e)
+//		{
+//			OperationStatusModel operationStatusModel = OperationStatusModel.builder()
+//					.operationName(RequestOperationName.DELETE.toString())
+//					.operationResult(RequestOperationStatus.ERROR.toString())
+//					.build();
+//			e.printStackTrace();
+//			return operationStatusModel;
+//		}
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())
