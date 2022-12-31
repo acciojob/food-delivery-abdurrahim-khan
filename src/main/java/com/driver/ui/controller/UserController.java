@@ -66,6 +66,7 @@ public class UserController {
 //			e.printStackTrace();
 //			return operationStatusModel;
 //		}
+		userService.deleteUser(id);
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())

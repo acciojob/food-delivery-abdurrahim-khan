@@ -66,6 +66,7 @@ public class OrderController {
 //			e.printStackTrace();
 //			return operationStatusModel;
 //		}
+		orderService.deleteOrder(id);
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())

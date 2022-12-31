@@ -73,6 +73,7 @@ public class FoodController {
 //
 //		}
 
+		foodService.deleteFoodItem(id);
 		OperationStatusModel operationStatusModel = OperationStatusModel.builder()
 				.operationName(RequestOperationName.DELETE.toString())
 				.operationResult(RequestOperationStatus.SUCCESS.toString())
