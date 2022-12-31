@@ -8,4 +8,5 @@ import com.driver.io.entity.FoodEntity;
 @Repository
 public interface FoodRepository extends CrudRepository<FoodEntity, Long> {
 	FoodEntity findByFoodId(String foodId);
+
 }

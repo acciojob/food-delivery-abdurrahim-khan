@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends CrudRepository<OrderEntity, Long> {
 	OrderEntity findByOrderId(String orderId);
+	boolean existsByOrderId(String orderId);
+	void deleteByOrderId(String orderId);
 }
